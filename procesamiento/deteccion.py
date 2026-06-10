@@ -23,6 +23,9 @@ class DetectorDeObjetos:
         imagen_resultado = cv2.cvtColor(imagen, cv2.COLOR_GRAY2BGR)
 
         for contorno in contornos:
-            # Ignoramos contornos muy pequeños porque suelen ser ruido visual
-            # y no objetos reales. 500 píxeles es un área mínima razonable
+            # Ignoramos contornos menores a 500 píxeles para evitar ruido visual
             if cv2.contourArea(contorno) > 500:
+                x, y, ancho, alto = cv2.boundingRect(contorno)
+                cv2.rectangle(imagen_resultado, (x, y), (x + ancho, y + alto), (0, 255, 0), 2)
+
+        return imagen_resultado
