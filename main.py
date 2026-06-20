@@ -80,6 +80,11 @@ def main():
     brillantes = detector._detectar_regiones_brillantes(suavizada)
     cv2.imwrite(f"{DIR_DEBUG}/06b_brillo.jpg", brillantes)    
     
+    # Combinar bordes y regiones brillantes en una sola imagen
+    combinado = cv2.bitwise_or(bordes_cerrados, brillantes)
+    cv2.imwrite(f"{DIR_DEBUG}/07_combinado.jpg", combinado)
+   
+
     # Etapa 3: Detección final y resultado
 
     # Ejecutar la pipeline completa de detección:
