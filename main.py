@@ -23,7 +23,7 @@ def parsear_argumentos():
 
 def main():
     # Paths de entrada y salida
-    PATH_ENTRADA = "./entrada/test5.jpg"
+    PATH_ENTRADA = "./entrada/prueba2.jpg"
     DIR_DEBUG = "./pruebas/debug"
     PATH_SALIDA = "salida/resultado.jpg"
 
