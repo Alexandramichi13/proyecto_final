@@ -5,13 +5,13 @@ DEFAULTS = {
     "clahe_clip_limit": 2.0,
     "clahe_tile_grid": 8,
     "blur_kernel": 5,
-    "canny_inferior": 50,
+    "canny_inferior": 30,
     "canny_superior": 150,
-    "area_minima": 500,
-    "area_maxima": 50000,
-    "proporcion_minima": 0.2,
-    "proporcion_maxima": 5.0,
-    "umbral_brillo": 180
+    "area_minima": 6000,
+    "area_maxima": 70000,
+    "proporcion_minima": 0.3,
+    "proporcion_maxima": 4.0,
+    "umbral_brillo": 160
 }
 
 class Configuracion:
