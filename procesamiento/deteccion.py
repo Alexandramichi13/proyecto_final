@@ -70,7 +70,7 @@ class DetectorDeObjetos:
         Returns:
             numpy.ndarray: imagen binaria con bordes cerrados.
         """
-        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3,3))
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (2,2))
 
         return cv2.morphologyEx(bordes, cv2.MORPH_CLOSE, kernel)
 
