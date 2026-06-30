@@ -1,4 +1,3 @@
-```markdown
 # Optimizador de Imágenes de Seguridad Nocturnas
 
 Aplicación de procesamiento digital de imágenes orientada al monitoreo nocturno
@@ -43,7 +42,7 @@ Segmented Park), un conjunto de imágenes de estacionamientos reales tomadas de
 día y de noche con siete cámaras distintas, bajo distintas condiciones climáticas
 y ángulos de visión.
 
-- **Fuente:** https://zenodo.org/records/6560823
+- **Fuente:** <https://zenodo.org/records/6560823>
 - **Autores:** Ciampi, L., Santiago, C., Costeira, J., Gennaro, C., Amato, G.
 - **Licencia:** Open Data Commons Attribution License v1.0
 
@@ -63,6 +62,7 @@ A diferencia de una simple subida de brillo, CLAHE respeta las diferencias
 locales de iluminación evitando que las zonas ya brillantes se saturen.
 
 Parámetros:
+
 - `clipLimit = 2.0`: limita la amplificación para evitar saturación
 - `tileGridSize = (8,8)`: divide la imagen en 64 sectores
 
@@ -76,6 +76,7 @@ interpreta el granulado de la imagen como bordes reales.
 Detecta cambios bruscos de intensidad que corresponden a los bordes de los objetos.
 
 Parámetros:
+
 - `umbral_inferior = 30`: cambios menores se ignoran
 - `umbral_superior = 150`: cambios mayores se consideran bordes seguros
 
@@ -91,6 +92,7 @@ bordes son difusos.
 ### Etapa 3 — Filtrado y resultado
 
 Los contornos se filtran por:
+
 - **Área mínima** (`6000 px²`): descarta ruido y objetos muy pequeños
 - **Área máxima** (`70000 px²`): descarta regiones demasiado grandes
 - **Proporción ancho/alto** (`0.3 a 4.0`): descarta formas que no corresponden a vehículos
@@ -100,7 +102,7 @@ Los contornos se filtran por:
 
 ## 5. Estructura del proyecto
 
-```
+```text
 proyecto_final/
 ├── entrada/               — imágenes de prueba del dataset NDISPark
 ├── procesamiento/
@@ -125,7 +127,7 @@ python main.py --area_minima 8000 --umbral_brillo 160
 ```
 
 | Parámetro | Valor por defecto | Descripción |
-|---|---|---|
+| --- | --- | --- |
 | `clahe_clip_limit` | 2.0 | Límite de amplificación de contraste |
 | `clahe_tile_grid` | 8 | Tamaño de la grilla de sectores |
 | `blur_kernel` | 5 | Tamaño del kernel de suavizado gaussiano |
@@ -142,6 +144,7 @@ python main.py --area_minima 8000 --umbral_brillo 160
 ## 7. Instalación
 
 ### Requisitos previos
+
 - Python 3.11.9
 
 ### Crear y activar el entorno virtual
@@ -182,25 +185,14 @@ inspección y análisis.
 
 ## 9. Limitaciones conocidas
 
-- Los vehículos oscuros tienen poco contraste con el fondo nocturno, lo que
-  dificulta su detección tanto por bordes como por brillo
-- Los parámetros están calibrados para este tipo de escena específica y pueden
-  no funcionar bien en otros entornos
-- Cuando dos vehículos están muy próximos, sus contornos pueden fusionarse en
-  un solo rectángulo
+- Los vehículos oscuros tienen poco contraste con el fondo nocturno, lo que dificulta su detección tanto por bordes como por brillo
+- Los parámetros están calibrados para este tipo de escena específica y pueden no funcionar bien en otros entornos
+- Cuando dos vehículos están muy próximos, sus contornos pueden fusionarse en un solo rectángulo
 
 ---
 
 ## 10. Mejoras futuras
 
-- Implementar un modelo de detección de objetos entrenado específicamente para
-  reconocer vehículos, lo que permitiría detectar autos oscuros independientemente
-  del contraste
-- Agregar un contador de vehículos para medir la disponibilidad de espacios
-  en tiempo real
-- Implementar zonas de exclusión para ignorar áreas fijas de la imagen que
-  siempre generan falsos positivos
-```
-
----
-
+- Implementar un modelo de detección de objetos entrenado específicamente para reconocer vehículos, lo que permitiría detectar autos oscuros independientemente del contraste
+- Agregar un contador de vehículos para medir la disponibilidad de espacios en tiempo real
+- Implementar zonas de exclusión para ignorar áreas fijas de la imagen que siempre generan falsos positivos
